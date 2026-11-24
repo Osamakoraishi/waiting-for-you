@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f9e8ef"><meta name="description" content="A little place for the days between now and seeing you again.">
+<title>Until We Meet Again ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#624b5c;--rose:#d98da8;--cream:#fffaf7}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 15%,#fff4ed 0,transparent 40%),radial-gradient(ellipse at 85% 20%,#f4e2f5 0,transparent 42%),linear-gradient(145deg,#f9e8ef,#f6edf5 55%,#fff5eb);overflow-x:hidden}.glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 80%,#fff9 0,transparent 45%)}.wrap{position:relative;min-height:100vh;display:grid;place-items:center;padding:42px 18px}.card{width:min(680px,100%);padding:clamp(28px,6vw,62px);text-align:center;border:1px solid #ffffffb8;border-radius:32px;background:#fffaf7b8;box-shadow:0 24px 80px #9d6e8520;backdrop-filter:blur(12px)}.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:#b77d98}.tinyheart{color:#d78eaa;font-size:22px}.title{font:500 clamp(38px,8vw,66px)/1.08 'Playfair Display',serif;margin:18px 0 12px}.subtitle{font-size:14px;line-height:1.8;color:#947b8b;max-width:420px;margin:0 auto}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:36px 0 28px}.unit{padding:17px 6px 13px;background:#fff9;border:1px solid #fff;border-radius:18px}.num{font:500 clamp(27px,6vw,40px) 'Playfair Display',serif;color:#bd7895;display:block}.unit small{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#a68c9b}.quote{font:italic 19px/1.65 'Playfair Display',serif;margin:25px auto 8px;max-width:480px;color:#806579;min-height:62px}.quote-by{font-size:11px;letter-spacing:.12em;color:#b08da1;text-transform:uppercase}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:27px}.btn{border:1px solid #e9c9d7;background:#fff9;color:#96647d;border-radius:999px;padding:12px 18px;font:500 12px 'DM Sans';cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);background:#fff}.btn.primary{background:#d994ad;color:white;border-color:#d994ad}.note{margin:28px auto 0;max-width:420px;border-top:1px solid #efdce5;padding-top:22px}.note button{border:0;background:none;color:#b87996;font:italic 17px 'Playfair Display';cursor:pointer}.hidden-note{display:none;font:italic 17px/1.7 'Playfair Display';margin:14px 0 0;color:#85677a}.footer{font-size:11px;color:#b49aa9;margin-top:34px}.float{position:fixed;bottom:-30px;color:#d89bb4;opacity:0;animation:rise linear infinite;pointer-events:none}@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.5}85%{opacity:.35}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}.modal{position:fixed;inset:0;background:#6d526b55;display:grid;place-items:center;padding:20px;z-index:5;transition:.3s}.modal.hide{opacity:0;pointer-events:none}.modalbox{max-width:440px;width:100%;padding:35px 28px;border-radius:26px;background:#fffaf7;text-align:center;box-shadow:0 20px 70px #55334b40}.modalbox h2{font:italic 28px 'Playfair Display';font-weight:500}.modalbox p{font:italic 19px/1.6 'Playfair Display';color:#806579}.modalbox button{margin-top:12px}@media(max-width:430px){.countdown{gap:6px}.unit{padding:13px 2px}.unit small{font-size:9px}.card{border-radius:24px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body><div class="glow"></div><div id="floats"></div>
+<div class="modal" id="welcome"><div class="modalbox"><div class="tinyheart">♡</div><h2>A little thought for you</h2><p id="modalQuote"></p><button class="btn primary" id="closeModal">Keep this close</button></div></div>
+<main class="wrap"><section class="card">
+<div class="eyebrow">For someone worth waiting for</div><div class="tinyheart">♡</div>
+<h1 class="title">Until We Meet Again</h1>
+<p class="subtitle">Some days are measured in hours. Some are measured in how much you miss someone. This little corner is counting the days until I see you again.</p>
+<div class="countdown" aria-label="Countdown to December 18"><div class="unit"><span class="num" id="days">00</span><small>Days</small></div><div class="unit"><span class="num" id="hours">00</span><small>Hours</small></div><div class="unit"><span class="num" id="minutes">00</span><small>Minutes</small></div><div class="unit"><span class="num" id="seconds">00</span><small>Seconds</small></div></div>
+<div class="eyebrow">A thought for today</div><p class="quote" id="quote"></p><div class="quote-by">— from a heart that waits</div>
+<div class="actions"><button class="btn primary" id="newQuote">A new little thought</button><button class="btn" id="music">♫ Play a little music</button><button class="btn" id="heart">Send a heart ♡</button></div>
+<div class="note"><button id="envelope">✉ Open a little letter</button><p class="hidden-note" id="letter">If distance could measure love, every mile between us would only prove how much there is. Until the day I can say hello in person, please know that you are missed, thought of, and loved. ♡</p></div>
+<div class="footer">Made with love, and a little bit of patience · December 18</div>
+</section></main>
+<script>
+const quotes=[
+"Somewhere between today and tomorrow, my heart is already looking for you.",
+"I don't mind the waiting; it's the distance from your arms that makes the hours long.",
+"Every sunset is beautiful, but I still wish I could watch the next one beside you.",
+"Missing you is my heart's quiet way of reminding me where it wants to be.",
+"If I could send a hug through time, you'd have one for every moment we've been apart.",
+"The days are passing, slowly perhaps, but every one of them brings me closer to you.",
+"Even on ordinary days, there is an extraordinary someone I find myself missing.",
+"I carry little conversations with you in my mind until we can have them for real.",
+"Distance is only the space between two places; it cannot measure what lives between two hearts.",
+"One day this countdown will be a memory, and you'll be right here."
+];
+const pick=()=>quotes[Math.floor(Math.random()*quotes.length)];
+document.getElementById('modalQuote').textContent=pick();
+document.getElementById('quote').textContent=pick();
+document.getElementById('closeModal').onclick=()=>document.getElementById('welcome').classList.add('hide');
+document.getElementById('newQuote').onclick=()=>document.getElementById('quote').textContent=pick();
+const target=new Date(2026,11,18,0,0,0);
+function tick(){let ms=Math.max(0,target-new Date());let d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);for(const [id,v] of Object.entries({days:d,hours:h,minutes:m,seconds:s}))document.getElementById(id).textContent=String(v).padStart(2,'0');if(ms===0)document.querySelector('.subtitle').textContent="The waiting is over. The day we've been counting down to is here. ♡"}
+tick();setInterval(tick,1000);
+document.getElementById('envelope').onclick=()=>{const n=document.getElementById('letter');n.style.display=n.style.display==='block'?'none':'block'};
+document.getElementById('heart').onclick=()=>{for(let i=0;i<12;i++){const e=document.createElement('span');e.textContent=['♡','♥','✧'][i%3];e.style.cssText='position:fixed;left:'+(35+Math.random()*30)+'%;top:65%;font-size:'+(18+Math.random()*22)+'px;color:#d78eaa;pointer-events:none;z-index:8;transition:transform 1.5s,opacity 1.5s';document.body.append(e);requestAnimationFrame(()=>{e.style.transform='translate('+(Math.random()*240-120)+'px,-'+(100+Math.random()*230)+'px) rotate(25deg)';e.style.opacity='0'});setTimeout(()=>e.remove(),1600)}};
+for(let i=0;i<18;i++){const e=document.createElement('span');e.className='float';e.textContent=i%3?'♡':'✧';e.style.left=Math.random()*100+'%';e.style.animationDuration=(12+Math.random()*15)+'s';e.style.animationDelay=(-Math.random()*25)+'s';e.style.fontSize=(12+Math.random()*16)+'px';document.getElementById('floats').append(e)}
+let audioCtx,oscillators=[],playing=false;
+function music(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();if(playing){oscillators.forEach(o=>{try{o.stop()}catch(e){}});oscillators=[];playing=false;document.getElementById('music').textContent='♫ Play a little music';return}
+const master=audioCtx.createGain();master.gain.value=.035;master.connect(audioCtx.destination);
+[261.63,329.63,392,493.88].forEach((f,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.value=[.7,.35,.25,.15][i];o.connect(g);g.connect(master);o.start();oscillators.push(o)});playing=true;document.getElementById('music').textContent='♫ Pause the music'}
+document.getElementById('music').onclick=music;
+</script></body></html>
