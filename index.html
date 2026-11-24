@@ -17,7 +17,7 @@
 <h1 class="title">Until We Meet Again</h1>
 <p class="subtitle">Some days are measured in hours. Some are measured in how much you miss someone. This little corner is counting the days until I see you again.</p>
 <div class="countdown" aria-label="Countdown to December 18"><div class="unit"><span class="num" id="days">00</span><small>Days</small></div><div class="unit"><span class="num" id="hours">00</span><small>Hours</small></div><div class="unit"><span class="num" id="minutes">00</span><small>Minutes</small></div><div class="unit"><span class="num" id="seconds">00</span><small>Seconds</small></div></div>
-<div class="eyebrow">A thought for today</div><p class="quote" id="quote"></p><div class="quote-by">— from a heart that waits</div>
+<div class="eyebrow">A thought for today</div><p class="quote" id="quote" role="button" tabindex="0" title="Tap for another little message" aria-label="Tap for another little message"></p><div class="quote-by">— tap the message for another ♡</div><div class="quote-by">— from a heart that waits</div>
 <div class="actions"><button class="btn primary" id="newQuote">A new little thought</button><button class="btn" id="music">♫ Play a little music</button><button class="btn" id="heart">Send a heart ♡</button></div>
 <div class="note"><button id="envelope">✉ Open a little letter</button><p class="hidden-note" id="letter">If distance could measure love, every mile between us would only prove how much there is. Until the day I can say hello in person, please know that you are missed, thought of, and loved. ♡</p></div>
 <div class="footer">Made with love, and a little bit of patience · December 18</div>
@@ -40,6 +40,9 @@ document.getElementById('modalQuote').textContent=pick();
 document.getElementById('quote').textContent=pick();
 document.getElementById('closeModal').onclick=()=>document.getElementById('welcome').classList.add('hide');
 document.getElementById('newQuote').onclick=()=>document.getElementById('quote').textContent=pick();
+function changeQuote(){document.getElementById('quote').textContent=pick()}
+document.getElementById('quote').addEventListener('click',changeQuote);
+document.getElementById('quote').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();changeQuote()}});
 const target=new Date(2026,11,18,0,0,0);
 function tick(){let ms=Math.max(0,target-new Date());let d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);for(const [id,v] of Object.entries({days:d,hours:h,minutes:m,seconds:s}))document.getElementById(id).textContent=String(v).padStart(2,'0');if(ms===0)document.querySelector('.subtitle').textContent="The waiting is over. The day we've been counting down to is here. ♡"}
 tick();setInterval(tick,1000);
@@ -48,7 +51,7 @@ document.getElementById('heart').onclick=()=>{for(let i=0;i<12;i++){const e=docu
 for(let i=0;i<18;i++){const e=document.createElement('span');e.className='float';e.textContent=i%3?'♡':'✧';e.style.left=Math.random()*100+'%';e.style.animationDuration=(12+Math.random()*15)+'s';e.style.animationDelay=(-Math.random()*25)+'s';e.style.fontSize=(12+Math.random()*16)+'px';document.getElementById('floats').append(e)}
 let audioCtx,oscillators=[],playing=false;
 function music(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();if(playing){oscillators.forEach(o=>{try{o.stop()}catch(e){}});oscillators=[];playing=false;document.getElementById('music').textContent='♫ Play a little music';return}
-const master=audioCtx.createGain();master.gain.value=.035;master.connect(audioCtx.destination);
+const master=audioCtx.createGain();master.gain.value=.075;master.connect(audioCtx.destination);
 [261.63,329.63,392,493.88].forEach((f,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.value=[.7,.35,.25,.15][i];o.connect(g);g.connect(master);o.start();oscillators.push(o)});playing=true;document.getElementById('music').textContent='♫ Pause the music'}
 document.getElementById('music').onclick=music;
 </script></body></html>
